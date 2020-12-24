@@ -1,0 +1,12 @@
+# emacs
+*~
+
+# for local builds
+build/*
+!build/.gitkeep
+
+# texmaker
+*.tex
+*.aux
+*.out
+
