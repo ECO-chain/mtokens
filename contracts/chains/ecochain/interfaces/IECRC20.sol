@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: GPL-3.0
 
-pragma solidity 0.4.21;
+pragma solidity ^0.4.20;
 
 /**
  * @dev Interface of the ECRC20 standard
