@@ -22,7 +22,7 @@ contract mToken is IECRC20, ImToken {
   string private symbol_;
   uint8 private decimals_;
   uint256 private totalSupply_;
-  address private proxySystem_;
+  
 
   /*
    * @notice constructor
@@ -36,7 +36,7 @@ contract mToken is IECRC20, ImToken {
     symbol_ = _symbol;
     decimals_ = _decimals;
     totalSupply_ = 0;
-    proxySystem_ = _proxy_oracle_system;
+    _proxyContract_ = ProxyOracleSystem(_proxy_oracle_system);
   }
 
   modifier validAction(uint256 _signature) {
