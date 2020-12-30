@@ -18,9 +18,13 @@ interface IBridgeToEthereum {
 
   /*
    * @dev requst burning of mirrored tokens. Callable by User
-   * @param _eth_address - ethere target address where the tokens will be released (unlocked)
-   * @param _amount - token amount for byrning. Must be equal to the requested unlocked amount on the other chain
-   * @param _hashed_secret - the hash of teh secrat that user has created
+   * @param _eth_address - ethereum target address where the tokens will be released (unlocked)
+   * @param _amount - token amount for burning. Must be equal to the requested unlocked amount on the other chain
+   * @param _hashed_secret - the hash of the secret that user has created
    */
   function requestBurning(string _eth_address, uint256 _amount, uint256 _hashed_secret) external payable;
+
+  /* events */
+  event InitIssuanceEvent(address _issue_to, uint256 _amount, uint256 _hashed_secret, uint256 _eth_tx);
+  event RequestBurningEvent(string _eth_address, uint256 _amount, uint256 _hashed_secret);
 }
