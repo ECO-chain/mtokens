@@ -1,3 +1,8 @@
+// SPDX-License-Identifier: GPL-3.0
+
+pragma solidity ^0.4.20;
+
+
 contract OracleSystem{
   function validateAction(uint256 signature) external returns (bool valid);
 }
@@ -11,7 +16,7 @@ contract ProxyOracleSystem{
    * @notice constructor
    * @param _OracleSystem_addr - address of the actual oracle protocol
    */
-  function ProxyOracleSystem(address _OracleSystem_addr) {
+  function ProxyOracleSystem(address _OracleSystem_addr) public {
     admin_ = msg.sender;
     _OS_ = OracleSystem(_OracleSystem_addr);
   }
@@ -28,7 +33,7 @@ contract ProxyOracleSystem{
    * @notice update the address of the contract of oracle protocol
    * @param _OracleSystem_addr - new address of the actual oracle protocol
    */
-  function updateOracleProtocol(address _new_addr) {
+  function updateOracleProtocol(address _new_addr) external {
     assert(admin_ == msg.sender);
 
     _OS_ = OracleSystem(_new_addr);
