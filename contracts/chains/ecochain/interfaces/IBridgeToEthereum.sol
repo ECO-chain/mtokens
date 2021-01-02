@@ -22,9 +22,9 @@ interface IBridgeToEthereum {
    * @param _amount - token amount for burning. Must be equal to the requested unlocked amount on the other chain
    * @param _hashed_secret - the hash of the secret that user has created
    */
-  function requestBurning(string _eth_address, uint256 _amount, uint256 _hashed_secret) external payable;
+  function requestBurning(int160 _eth_address, uint256 _amount, uint256 _hashed_secret) external payable;
 
   /* events */
   event InitIssuanceEvent(address _issue_to, uint256 _amount, uint256 _hashed_secret, uint256 _eth_tx);
-  event RequestBurningEvent(string _eth_address, uint256 _amount, uint256 _hashed_secret);
+  event RequestBurningEvent(uint160 _eth_address, uint256 _amount, uint256 _hashed_secret);
 }
