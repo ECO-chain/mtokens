@@ -136,8 +136,7 @@ contract OriginalToken is IERC20 {
             sender,
             _msgSender(),
             _allowances[sender][_msgSender()].sub(
-                amount,
-                "ERC20: transfer amount exceeds allowance"
+                amount
             )
         );
         return true;
@@ -189,8 +188,7 @@ contract OriginalToken is IERC20 {
             _msgSender(),
             spender,
             _allowances[_msgSender()][spender].sub(
-                subtractedValue,
-                "ERC20: decreased allowance below zero"
+                subtractedValue
             )
         );
         return true;
@@ -221,8 +219,7 @@ contract OriginalToken is IERC20 {
         _beforeTokenTransfer(sender, recipient, amount);
 
         _balances[sender] = _balances[sender].sub(
-            amount,
-            "ERC20: transfer amount exceeds balance"
+            amount
         );
         _balances[recipient] = _balances[recipient].add(amount);
         emit Transfer(sender, recipient, amount);
